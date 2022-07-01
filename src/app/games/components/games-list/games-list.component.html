@@ -2,6 +2,15 @@
     <div class="header-title"> <img src="assets/tindin-logo.png">  <div class="header-text"> TINDIN </div> </div>
 </div>
 
+<p-carousel contentClass="carousel-content" [circular]="true" [value]="imgs" [showIndicators]="false" [numVisible]="1">
+    
+    <ng-template let-img pTemplate="item">
+        <div style="display:flex; justify-content: center"> <img class="game-img" src="{{img.url}}"></div>
+        
+    </ng-template>
+
+</p-carousel>
+
 <div class="footer"> 
     <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>
 
