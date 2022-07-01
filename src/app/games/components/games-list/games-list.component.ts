@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { Game } from '../../models/game';
+import { GamesApiService } from '../../services/games-api.service';
 
 @Component({
   selector: 'app-games-list',
@@ -8,8 +10,10 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 
 export class GamesListComponent implements OnInit {
+
   
-  constructor(public authService: AuthService) { }
+  
+  constructor(public authService: AuthService, private gamesApiService: GamesApiService) { }
  
   imgs = [
     {
@@ -28,11 +32,18 @@ export class GamesListComponent implements OnInit {
     }
   ];
 
+  games: any; 
   isLoggedIn: boolean | undefined
+  noImgUrl = 'assets/no-image.jpg'
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe( res => {
       this.isLoggedIn = res;
+    })
+
+    this.gamesApiService.listGames().subscribe(res=>{
+      this.games = res;
+      console.log(this.games);
     })
   }
 

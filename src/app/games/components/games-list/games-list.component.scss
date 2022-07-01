@@ -15,6 +15,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    h1 {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
 
     input {
         height: 40px;
@@ -39,5 +44,41 @@
 
 .page-title-text {
     color: white;
+}
+
+.games-list {
+    img {
+        height: 250px;
+        width: 250px;
+    }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 35px;
+
+    .game-card {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .game-info {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game-rating {
+            width: 85px;
+            border-radius: 10px;
+            background: #fc4444;
+            color: white;
+            font-size: 12px;
+        }
+    }
+
 }
 

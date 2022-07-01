@@ -31,10 +31,21 @@
         </div>
     </div>
 
-</div>
+    <div *ngIf="games; else noGames" class="games-list">
+        <div *ngFor="let game of games.games" class="game-card">
+            <img *ngIf="game.photos.length == 0" src="assets/no-image.jpg">
+            <img *ngIf="game.photos.length > 0" src="{{game.photos[0].url}}">
+            <div class="game-info">
+                <span style="text-transform: uppercase; color:white; font-weight: 500; margin-top:15px"> {{game.title}}</span> <br>
+                <span style="color:white; font-weight: 600; margin-top: 5px" *ngIf="game.mediumPrice"> $ {{game.mediumPrice | number:'1.2-2'}} </span>
+                <div  style="margin-top: 5px" class="game-rating">{{game.rating}} / 10</div>
+            </div>
+        </div>
+    </div>
 
+    <ng-template #noGames>No games found</ng-template>
 
-<div class="footer"> 
+    <div class="footer"> 
     <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>
 
     <div class="footer-buttons">
@@ -46,3 +57,8 @@
         <button pButton pRipple type="button" icon="pi pi-instagram" class="p-button-rounded p-button-text"></button>
     </div>
 </div>
+
+</div>
+
+
+
