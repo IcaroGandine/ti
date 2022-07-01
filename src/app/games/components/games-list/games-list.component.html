@@ -3,7 +3,7 @@
     <img src="assets/tindin-logo.png">  
     <div class="header-text"> TINDIN </div>
     </div> 
-    <input type="text" *ngIf="isLoggedIn===false" class="search-input" formControlName="search" placeholder="Search game here" pInputText /> 
+    <input type="text" *ngIf="isLoggedIn===false" class="search-input" [formControl]="searchGames" placeholder="Search game here" pInputText /> 
     <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded"></button>
     
 </div>
@@ -30,7 +30,7 @@
             <button pButton type="button" label="NEW GAME" ></button>
         </div>
     </div>
-
+    <div style="width: 100%; display: flex; justify-content: center"> <button (click)="loadMoreData()" class="load-data" pButton type="button" label="Load more games" ></button> </div>
     <div *ngIf="games; else noGames" class="games-list">
         <div *ngFor="let game of games" class="game-card">
             <img *ngIf="game.photos.length == 0" src="assets/no-image.jpg">
@@ -45,7 +45,7 @@
 
     <ng-template #noGames><span style="color: white">No games found</span></ng-template>
 
-    <div style="width: 100%; display: flex; justify-content: center"> <button (click)="loadMoreData()" class="load-data" pButton type="button" label="Load more games" ></button> </div> 
+     
 
 </div>
 

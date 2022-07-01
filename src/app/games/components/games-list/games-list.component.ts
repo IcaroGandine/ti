@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Game } from '../../models/game';
 import { GamesApiService } from '../../services/games-api.service';
@@ -49,7 +50,7 @@ export class GamesListComponent implements OnInit {
       this.games = res.games;
     })
 
-    this.searchGames.valueChanges.subscribe( value => {
+    this.searchGames.valueChanges.pipe(debounceTime(500)).subscribe( value => {
       this.gamesApiService.listGames({page: 1, perPage: 8, title: value}).subscribe(res =>{
         this.games = res.games;
         this.pageCounter = 2;
@@ -59,7 +60,7 @@ export class GamesListComponent implements OnInit {
 
   loadMoreData() {
     this.gamesApiService.listGames({page: this.pageCounter, perPage: 8, title: this.searchGames.value}).subscribe(res =>{
-      res.games.forEach( (game: any) => this.games.push(game));
+      this.games = [...this.games, ...res.games];
       this.pageCounter+=1;
     })
   }
