@@ -26,13 +26,13 @@
 
         <div class="page-title-actions">
             
-            <input type="text" *ngIf="isLoggedIn" class="title-search-input" formControlName="search" placeholder="Search from..." pInputText />
+            <input type="text" *ngIf="isLoggedIn" class="title-search-input" [formControl]="searchGames" placeholder="Search from..." pInputText />
             <button pButton type="button" label="NEW GAME" ></button>
         </div>
     </div>
 
     <div *ngIf="games; else noGames" class="games-list">
-        <div *ngFor="let game of games.games" class="game-card">
+        <div *ngFor="let game of games" class="game-card">
             <img *ngIf="game.photos.length == 0" src="assets/no-image.jpg">
             <img *ngIf="game.photos.length > 0" src="{{game.photos[0].url}}">
             <div class="game-info">
@@ -43,9 +43,13 @@
         </div>
     </div>
 
-    <ng-template #noGames>No games found</ng-template>
+    <ng-template #noGames><span style="color: white">No games found</span></ng-template>
 
-    <div class="footer"> 
+    <div style="width: 100%; display: flex; justify-content: center"> <button (click)="loadMoreData()" class="load-data" pButton type="button" label="Load more games" ></button> </div> 
+
+</div>
+
+<div class="footer"> 
     <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>
 
     <div class="footer-buttons">
@@ -56,9 +60,7 @@
         <button pButton pRipple type="button" icon="pi pi-youtube" class="p-button-rounded p-button-text"></button>
         <button pButton pRipple type="button" icon="pi pi-instagram" class="p-button-rounded p-button-text"></button>
     </div>
-</div>
-
-</div>
+    </div>
 
 
 
