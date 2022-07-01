@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 75vh;
+}
+
+.login-box {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2.5%;
+    background: white;
+    width: 400px;
+    height: 400px;
+    justify-content: center;
+
+    .box-title {
+        text-align: center;
+        height: 80px
+    }
+
+    .box-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            margin: 15px;
+            width: 300px;
+            height: 45px;
+        }
+    }
+
+    .box-footer {
+        button {
+            border: 1px #1b181c solid;
+            background: #1b181c ;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        margin-top: 20px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

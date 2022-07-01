@@ -1,15 +1,38 @@
 <div class="header">
-    <div class="header-title"> <img src="assets/tindin-logo.png">  <div class="header-text"> TINDIN </div> </div>
+    <div class="header-title"> 
+    <img src="assets/tindin-logo.png">  
+    <div class="header-text"> TINDIN </div>
+    </div> 
+    <input type="text" *ngIf="isLoggedIn===false" class="search-input" formControlName="search" placeholder="Search game here" pInputText /> 
+    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded"></button>
+    
 </div>
 
-<p-carousel contentClass="carousel-content" [circular]="true" [value]="imgs"  [numVisible]="1">
+<div class="container" style="padding-left: 30px; padding-right: 30px"> 
+    <p-carousel *ngIf="isLoggedIn===false" contentClass="carousel-content" [circular]="true" [value]="imgs"  [numVisible]="1">
     
-    <ng-template let-img pTemplate="item">
-        <div style="display:flex; justify-content: center"> <img class="game-img" src="{{img.url}}"></div>
-        
-    </ng-template>
+        <ng-template let-img pTemplate="item">
+            <div style="display:flex; justify-content: center"> <img class="game-img" src="{{img.url}}"></div>
+            
+        </ng-template>
+    
+    </p-carousel>
+    
+    <div *ngIf="isLoggedIn" class="page-title">
+        <div class="page-title-text">
+            <h1>Games</h1>
+            <span>Games manager portal</span>
+        </div>
 
-</p-carousel>
+        <div class="page-title-actions">
+            
+            <input type="text" *ngIf="isLoggedIn" class="title-search-input" formControlName="search" placeholder="Search from..." pInputText />
+            <button pButton type="button" label="NEW GAME" ></button>
+        </div>
+    </div>
+
+</div>
+
 
 <div class="footer"> 
     <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>

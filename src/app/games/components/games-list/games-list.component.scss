@@ -3,13 +3,41 @@
     width: 90%;
 }
 
-.p-button-rounded {
-    border: 1px solid white;
-    color: #fc4444;
-    margin-right: 10px;
+.header {
+    button {
+        background: #2d272b;
+        border: 2px solid white !important;
+        color: white !important;
+    } 
 }
 
-.p-button-rounded:hover {
-    border: 1px solid #fc4444 !important;
-    color: #fc4444 !important
+.page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+        height: 40px;
+        width: 175px;
+        border: 2px solid red;
+        background: #2d272b;
+        color: white;
+
+        
+    }
+    ::placeholder {
+        color: white;
+    }
+
+    button {
+        margin-left: 15px;
+        height: 40px;
+        background: #fc4444;
+        border: 1px solid #fc4444;
+    }
 }
+
+.page-title-text {
+    color: white;
+}
+

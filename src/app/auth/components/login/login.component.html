@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="header">
+    <div class="header-title"> <img src="assets/tindin-logo.png">  <div class="header-text"> TINDIN </div>  </div>
+</div>
+<form [formGroup]="form">
+<div class="container">
+    <div class="login-box"> 
+        <div class="box-title">
+            <p style="font-weight: bold; font-size: 18px">SIGN IN</p> 
+            <p style="color: grey">Insert your account information</p>
+        </div>
+        
+        <div class="box-inputs">
+            <input type="text" formControlName="email" placeholder="Username or email" pInputText />
+            <input type="text" formControlName="password" placeholder="Password" pInputText />
+        </div>
+    
+        <div class="box-footer"> 
+            <button (click)="submitForm()" pButton type="button" label="Login your account" ></button> <br>
+            <span>No account? Send email <a href="">fabio@tindin.com.br</a></span>
+        </div>
+       
+    </div>
+</div>
+
+</form>
+
+<div class="footer"> 
+    <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>
+
+    <div class="footer-buttons">
+        
+        <button pButton pRipple type="button" icon="pi pi-facebook" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-twitter" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-google" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-youtube" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-instagram" class="p-button-rounded p-button-text"></button>
+    </div>
+</div>
