@@ -2,3 +2,14 @@
     height: 500px;
     width: 90%;
 }
+
+.p-button-rounded {
+    border: 1px solid white;
+    color: #fc4444;
+    margin-right: 10px;
+}
+
+.p-button-rounded:hover {
+    border: 1px solid #fc4444 !important;
+    color: #fc4444 !important
+}

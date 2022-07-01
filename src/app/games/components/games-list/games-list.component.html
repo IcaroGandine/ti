@@ -2,7 +2,7 @@
     <div class="header-title"> <img src="assets/tindin-logo.png">  <div class="header-text"> TINDIN </div> </div>
 </div>
 
-<p-carousel contentClass="carousel-content" [circular]="true" [value]="imgs" [showIndicators]="false" [numVisible]="1">
+<p-carousel contentClass="carousel-content" [circular]="true" [value]="imgs"  [numVisible]="1">
     
     <ng-template let-img pTemplate="item">
         <div style="display:flex; justify-content: center"> <img class="game-img" src="{{img.url}}"></div>
@@ -15,6 +15,11 @@
     <div style="margin-left: 15px"> Coded by <u>Icaro Weiler</u> Tindin - Test for job position!</div>
 
     <div class="footer-buttons">
-        abc
+        
+        <button pButton pRipple type="button" icon="pi pi-facebook" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-twitter" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-google" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-youtube" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" icon="pi pi-instagram" class="p-button-rounded p-button-text"></button>
     </div>
 </div>
