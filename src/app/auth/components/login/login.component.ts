@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoginApiService } from '../../services/login-api.service';
 
@@ -10,7 +11,7 @@ import { LoginApiService } from '../../services/login-api.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private loginApiService: LoginApiService) { }
+  constructor(private authService: AuthService, private loginApiService: LoginApiService, private router: Router) { }
 
   body: any;
 
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
     else {
       this.createBody(this.form.get('email')!.value, this.form.get('password')!.value);
       this.authService.doLogin(this.body);
-      console.log(this.body)
+      console.log(this.body);
+      this.router.navigate(['']);
     }
   }
 

@@ -4,7 +4,7 @@
     <div class="header-text"> TINDIN </div>
     </div> 
     <input type="text" *ngIf="isLoggedIn===false" class="search-input" [formControl]="searchGames" placeholder="Search game here" pInputText /> 
-    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded"></button>
+    <button  *ngIf="isLoggedIn===false" (click)="goTo('login')" pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded"></button>
     
 </div>
 
@@ -38,7 +38,7 @@
             <div class="game-info">
                 <span style="text-transform: uppercase; color:white; font-weight: 500; margin-top:15px"> {{game.title}}</span> <br>
                 <span style="color:white; font-weight: 600; margin-top: 5px" *ngIf="game.mediumPrice"> $ {{game.mediumPrice | number:'1.2-2'}} </span>
-                <div  style="margin-top: 5px" class="game-rating">{{game.rating}} / 10</div>
+                <div  style="margin-top: 5px" class="game-rating">{{game.rating | number:'1.2-2'}} / 10</div>
             </div>
         </div>
     </div>
